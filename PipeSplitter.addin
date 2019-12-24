@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Assembly>PipeSplitter.dll</Assembly>
+    <ClientId>803CCCC0-554A-403A-9EFF-F1B84962CA2A</ClientId>
+    <FullClassName>PipeSplitter.App</FullClassName>
+    <Name>PipeSplitter</Name>
+    <VendorId>Egorov.A</VendorId>
+    <VendorDescription>Egorov.A, www.github.com/MyN1ckName/PipeSplitter</VendorDescription>
+  </AddIn>
+</RevitAddIns>
