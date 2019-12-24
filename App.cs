@@ -13,12 +13,12 @@ namespace PipeSplitter
 			RibbonPanel rvtRibbonPanel = app.CreateRibbonPanel("PipeSplitter");
 			PushButtonData dataButton = new PushButtonData("Button", "PipeSplitter"
 				, ExecutingAssemblyPath, "PipeSplitter.Command");
-			//////dataButton.AvailabilityClassName = "PipeSplitter.CommandAvailability";
+
 			PushButton button = rvtRibbonPanel.AddItem(dataButton) as PushButton;
 
-			//button.LargeImage = new System.Windows.Media.Imaging.BitmapImage
-			//	(new Uri("pack://application:,,,/PipeSplitter;component/PipeSplitter/icon.ico"
-			//	, UriKind.Absolute));
+			button.LargeImage = new System.Windows.Media.Imaging.BitmapImage
+				(new Uri("pack://application:,,,/PipeSplitter;component/icon.ico"
+				, UriKind.Absolute));
 
 			button.ToolTip =
 				"Split Pipes by Selected Pipe Type";
