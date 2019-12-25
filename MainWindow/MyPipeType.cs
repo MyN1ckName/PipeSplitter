@@ -1,16 +1,17 @@
-﻿using Autodesk.Revit.DB.Plumbing;
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.DB.Plumbing;
 
 namespace PipeSplitter.MainWindow
 {
 	class MyPipeType
 	{
 		PipeType pt;
-		string maxLenght;
+		Parameter param;
 
 		public MyPipeType(PipeType pt)
 		{
 			this.pt = pt;
-			maxLenght = pt.LookupParameter("Длина трубы").AsValueString();
+			param = pt.LookupParameter("Длина трубы");
 		}
 
 		public PipeType GetPipeType
@@ -20,7 +21,12 @@ namespace PipeSplitter.MainWindow
 
 		public string MaxLength
 		{
-			get { return maxLenght; }
+			get
+			{
+				if (param != null)
+					return param.AsValueString();
+				else return "Not Find";
+			}
 		}
 
 		public bool IsChecked { get; set; }

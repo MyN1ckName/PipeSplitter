@@ -30,7 +30,8 @@ namespace PipeSplitter.MainWindow
 		private void GetPipesTypes(Document doc)
 		{
 			FilteredElementCollector collector = new FilteredElementCollector(doc);
-			collector.OfClass(typeof(PipeType));
+			collector.OfClass(typeof(PipeType)).ToElements();
+
 			foreach (PipeType pt in collector)
 			{
 				pipeTypes.Add(new MyPipeType(pt));
@@ -100,12 +101,13 @@ namespace PipeSplitter.MainWindow
 							  List<PipeType> pt = new List<PipeType>();
 							  foreach (MyPipeType mpt in pipeTypes)
 							  {
-								  if (mpt.IsChecked)
+								  if (mpt.IsChecked && mpt.MaxLength != "Not Find")
 								  {
 									  pt.Add(mpt.GetPipeType);
 								  }
 							  }
-							  ps.Split(pt);
+							  if (pt.Count > 0)
+								  ps.Split(pt);
 						  }
 						  catch (Exception ex)
 						  {
@@ -115,6 +117,7 @@ namespace PipeSplitter.MainWindow
 					  obj =>
 					  {
 						  return true;
+
 					  }));
 			}
 		}
