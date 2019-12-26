@@ -61,7 +61,6 @@
     </Compile>
     <Compile Include="MainWindow\RelayCommand.cs" />
     <Compile Include="MainWindow\ViewModel.cs" />
-    <Compile Include="Model\PickFilterByBuiltInCategory.cs" />
     <Compile Include="Model\PipeSplitter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Util.cs" />
