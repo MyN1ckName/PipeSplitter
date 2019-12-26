@@ -36,7 +36,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="PipeTypes" IsReadOnly="True" Width="150"
                                         Binding="{Binding Path=GetPipeType.Name}"/>
-                    <DataGridTextColumn Header="MaxLength" IsReadOnly="True" Width="70"
+                    <DataGridTextColumn Header="MaxLength" IsReadOnly="False" Width="70"
                                         Binding="{Binding Path=MaxLength}"/>
 
                     <DataGridTemplateColumn Header="Split" Width="40">

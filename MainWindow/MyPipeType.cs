@@ -1,8 +1,14 @@
-﻿using Autodesk.Revit.DB;
+﻿using System;
+using System.Windows;
+
+using Autodesk.Revit.DB;
 using Autodesk.Revit.DB.Plumbing;
+using Autodesk.Revit.Attributes;
 
 namespace PipeSplitter.MainWindow
 {
+	[TransactionAttribute(TransactionMode.Manual)]
+	[RegenerationAttribute(RegenerationOption.Manual)]
 	class MyPipeType
 	{
 		PipeType pt;
@@ -27,8 +33,23 @@ namespace PipeSplitter.MainWindow
 					return param.AsValueString();
 				else return "Not Find";
 			}
+			set
+			{
+				try
+				{
+					using (Transaction t = new Transaction(pt.Document, "SetMaxLength"))
+					{
+						t.Start();
+						param.SetValueString(value);
+						t.Commit();
+					}
+				}
+				catch (Exception)
+				{
+					MessageBox.Show("Failed to Set Value the Parameter", "Error");
+				}
+			}
 		}
-
 		public bool IsChecked { get; set; }
 	}
 }
