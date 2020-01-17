@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
@@ -126,24 +125,9 @@ namespace PipeSplitter.Model
 		// Получение точки на растоянии step от заданной точки origin
 		private XYZ GetPoint(XYZ origin, XYZ direction, double step)
 		{
-			double x = origin.X;
-			double y = origin.Y;
-			double z = origin.Z;
-
-			if (direction.X < 0)
-				x = x - Math.Abs(direction.X * step);
-			if (direction.X > 0)
-				x = x + Math.Abs(direction.X * step);
-
-			if (direction.Y < 0)
-				y = y - Math.Abs(direction.Y * step);
-			if (direction.Y > 0)
-				y = y + Math.Abs(direction.Y * step);
-
-			if (direction.Z < 0)
-				z = z - Math.Abs(direction.Z * step);
-			if (direction.Z > 0)
-				z = z + Math.Abs(direction.Z * step);
+			double x = origin.X + (direction.X * step);
+			double y = origin.Y + (direction.Y * step);
+			double z = origin.Z + (direction.Z * step);
 
 			return new XYZ(x, y, z);
 		}
