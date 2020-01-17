@@ -96,8 +96,7 @@ namespace PipeSplitter.MainWindow
 						  {
 							  Window window = obj as Window;
 							  window.Close();
-
-							  Model.PipeSplitter ps = new Model.PipeSplitter(doc);
+							  							  
 							  List<PipeType> pt = new List<PipeType>();
 							  foreach (MyPipeType mpt in pipeTypes)
 							  {
@@ -107,7 +106,10 @@ namespace PipeSplitter.MainWindow
 								  }
 							  }
 							  if (pt.Count > 0)
+							  {
+								  Model.PipeSplitter ps = new Model.PipeSplitter(doc);
 								  ps.Split(pt);
+							  }
 						  }
 						  catch (Exception ex)
 						  {

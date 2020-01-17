@@ -112,7 +112,7 @@ namespace PipeSplitter.Model
 			XYZ origin = line.GetEndPoint(0);
 
 			points.Add(line.GetEndPoint(0));
-			for (double i = 0; i < (line.Length / maxLenght) - 1; i++)
+			for (int i = 0; i < (line.Length / maxLenght) - 1; i++)
 			{
 				XYZ p = GetPoint(origin, direction, maxLenght);
 				points.Add(p);
